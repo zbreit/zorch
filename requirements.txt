@@ -1,0 +1,5 @@
+http://docs.python-guide.org/en/latest/writing/structure/ 
+
+- and -
+
+https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format
