@@ -1,15 +1,14 @@
 class Command(object):
     'A class to associate terminal input to game commands'
-    commandList = []
-    # A list of all of the commands
-    commandHistory = []
+    commandList    = [] # A list of all valid commands
+    
+    commandHistory = [] # A list of all of the commands just used
     
     def __init__(self, function, spellings):
-        # The function that should be executed when this command is entered
-        self.function = function
-        # List of possible spellings for a command (i.e. ["east", "e"] or ["take", "t"]).
-        # Can also include other equivalent words (i.e. ["east", "e", "left", "l")
-        self.spellings = spellings
+        
+        self.function  = function  # The function that should be executed when this command is entered
+        
+        self.spellings = spellings # List of spellings/equivalent words that trigger a command (i.e. ["east", "e", "left", "l"]).
         Command.commandList.append(self)
         
     def execute(self, *args):
@@ -36,8 +35,10 @@ up    = Command(function  = fillerFunction,
                spellings = ["up", "u"])
 down  = Command(function  = fillerFunction,
                spellings = ["down", "d"])
+back  = Command(function  = fillerFunction,
+               spellings = ["back", "b"])  
                
-               
+# Checks if a user input is a valid spelling of any command. If yes, execute that command.               
 [command.execute() for command in Command.commandList for spelling in command.spellings if(userInput == spelling)]
 
         
